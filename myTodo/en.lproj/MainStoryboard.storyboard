@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xyd-M1-IKV">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
+    </dependencies>
+    <scenes>
+        <!--My Task View Controller - My Task-->
+        <scene sceneID="X6D-R1-tUU">
+            <objects>
+                <viewController id="Bhl-eQ-IyP" customClass="MyTaskViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9yY-ce-YRq">
+                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Ghj-JA-aTO">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="325" id="zQW-HD-5Qa"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="Bhl-eQ-IyP" id="PBy-d2-G45"/>
+                                    <outlet property="delegate" destination="Bhl-eQ-IyP" id="zjz-y4-XRP"/>
+                                </connections>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="KHT-cW-XLf">
+                                <items>
+                                    <navigationItem title="My Tasks" id="QIT-jM-shM">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="sdi-zw-mUg">
+                                            <connections>
+                                                <segue destination="TbW-nR-z28" kind="modal" identifier="AddTask" modalTransitionStyle="flipHorizontal" id="vKM-uj-DMf"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KHT-cW-XLf" firstAttribute="top" secondItem="9yY-ce-YRq" secondAttribute="top" type="default" id="2XM-vk-IxS"/>
+                            <constraint firstItem="Ghj-JA-aTO" firstAttribute="bottom" secondItem="9yY-ce-YRq" secondAttribute="bottom" type="default" id="5Ge-pH-AYP"/>
+                            <constraint firstItem="KHT-cW-XLf" firstAttribute="leading" secondItem="9yY-ce-YRq" secondAttribute="leading" type="default" id="Hap-KB-20c"/>
+                            <constraint firstItem="KHT-cW-XLf" firstAttribute="trailing" secondItem="9yY-ce-YRq" secondAttribute="trailing" type="default" id="obP-5k-T8M"/>
+                            <constraint firstItem="Ghj-JA-aTO" firstAttribute="trailing" secondItem="9yY-ce-YRq" secondAttribute="trailing" type="default" id="xCs-Sd-Cbu"/>
+                            <constraint firstItem="Ghj-JA-aTO" firstAttribute="top" secondItem="KHT-cW-XLf" secondAttribute="bottom" type="default" id="xhm-Yy-nKY"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="My Task" id="3Ci-pf-pNZ"/>
+                    <connections>
+                        <outlet property="AddTask" destination="sdi-zw-mUg" id="DCT-gy-gZE"/>
+                        <outlet property="TaskListTable" destination="Ghj-JA-aTO" id="url-aE-Oap"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aDr-1h-fhr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="871" y="-1138"/>
+        </scene>
+        <!--Add Task View Controller-->
+        <scene sceneID="HN6-33-vXL">
+            <objects>
+                <viewController id="TbW-nR-z28" customClass="AddTaskViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fkJ-63-biZ">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="pEG-Co-ztS">
+                                <items>
+                                    <navigationItem title="Add task" id="sHT-8J-byI">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="HQm-bu-yCj">
+                                            <connections>
+                                                <action selector="closeModal:" destination="TbW-nR-z28" id="qZR-c4-VPy"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add task" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uAE-D8-Df0">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="260" id="xa5-M2-Djk"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="TbW-nR-z28" id="dVJ-O1-1MI"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pEG-Co-ztS" firstAttribute="trailing" secondItem="fkJ-63-biZ" secondAttribute="trailing" type="default" id="3lh-gP-aLZ"/>
+                            <constraint firstItem="pEG-Co-ztS" firstAttribute="top" secondItem="fkJ-63-biZ" secondAttribute="top" type="default" id="AYe-wk-Hlg"/>
+                            <constraint firstItem="pEG-Co-ztS" firstAttribute="leading" secondItem="fkJ-63-biZ" secondAttribute="leading" type="default" id="BJf-sL-40s"/>
+                            <constraint firstItem="uAE-D8-Df0" firstAttribute="centerX" secondItem="pEG-Co-ztS" secondAttribute="centerX" type="default" id="KLi-h2-MUg"/>
+                            <constraint firstItem="uAE-D8-Df0" firstAttribute="top" secondItem="fkJ-63-biZ" secondAttribute="top" constant="112" id="lda-rP-DJf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="AddTaskTextField" destination="uAE-D8-Df0" id="vue-GB-kTj"/>
+                        <outlet property="addView" destination="fkJ-63-biZ" id="S6L-Ap-8EB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I4s-0w-UpL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1352" y="-1138"/>
+        </scene>
+        <!--Finish Task View Controller - Task Done-->
+        <scene sceneID="5">
+            <objects>
+                <viewController id="2" customClass="FinishTaskViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3">
+                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="t0G-Sv-7hd">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="328" id="Nu2-o6-LbI"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="2" id="90k-xL-aH7"/>
+                                    <outlet property="delegate" destination="2" id="d36-Kv-KoY"/>
+                                </connections>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="kQ4-Ou-kN7">
+                                <items>
+                                    <navigationItem title="Task Done" id="Ey2-Xd-xfK"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="t0G-Sv-7hd" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="EDA-E0-JeB"/>
+                            <constraint firstItem="kQ4-Ou-kN7" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="PK4-dT-qh3"/>
+                            <constraint firstItem="t0G-Sv-7hd" firstAttribute="top" secondItem="kQ4-Ou-kN7" secondAttribute="bottom" type="default" id="bsJ-7u-NPq"/>
+                            <constraint firstItem="t0G-Sv-7hd" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="i7x-xA-UnU"/>
+                            <constraint firstItem="kQ4-Ou-kN7" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="lgq-cw-6gL"/>
+                            <constraint firstItem="t0G-Sv-7hd" firstAttribute="centerX" secondItem="kQ4-Ou-kN7" secondAttribute="centerX" type="default" id="xjd-WJ-JfN"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Task Done" id="xMb-S8-uV8"/>
+                    <connections>
+                        <outlet property="FinishTaskTable" destination="t0G-Sv-7hd" id="EH4-1c-wyg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1042" y="-459"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="4q6-5a-kec">
+            <objects>
+                <tabBarController id="xyd-M1-IKV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="k6P-tc-fOC">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Bhl-eQ-IyP" kind="relationship" relationship="viewControllers" id="zsU-Dv-iZO"/>
+                        <segue destination="2" kind="relationship" relationship="viewControllers" id="0zt-PK-IVU"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oTA-qm-SyM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="250" y="-528"/>
+        </scene>
+    </scenes>
+    <classes>
+        <class className="AddTaskViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddTaskViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="closeModal:"/>
+                <relationship kind="outlet" name="AddTaskTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="addView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="FinishTaskViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FinishTaskViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="FinishTaskTable" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="MyTaskViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyTaskViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="AddTask" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="TaskListTable" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
